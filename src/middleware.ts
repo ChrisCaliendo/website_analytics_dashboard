@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export default async function middleware(req: NextRequest) {
     if(req.nextUrl.pathname === '/'){
@@ -15,7 +15,7 @@ export default async function middleware(req: NextRequest) {
         console.log("gottem")
 
     }
-    return NextRequest.next()
+    return NextResponse.next()
 
 }
 export const matcher = {
