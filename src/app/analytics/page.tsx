@@ -1,10 +1,13 @@
 import { analytics } from "@/utils/analytics";
+import AnalyticsDashboard from "./AnalyticsDashboard";
 
 const Page = async () => {
     const pageview = await analytics.retrieveDays("pageview", 2)
     return (  
         <div>
-            <p className="text-white">hello {JSON.stringify(pageview)}</p>
+            <div className="text-white">
+                <AnalyticsDashboard />
+            </div>
         </div>
     );
 }
