@@ -35,15 +35,24 @@ const Page = async () => {
             const key = Object.keys(event)[0]!
             const value = Object.values(event)[0]!
             const parsedKey = JSON.parse(key)
+
             const country = parsedKey?.country
             if(country){
                 if(topCountriesMap.has(country)){
                     const prevValue = topCountriesMap.get(country)!
                     topCountriesMap.set(country, prevValue + value)
                 }
+                else{
+                    topCountriesMap.set(country, value)
+                }
             }
         }
     }
+
+    const topCountries = [...topCountriesMap.entries()].sort((a, b) => {
+        if(a[1] > b[1]) return -1;
+        else return 1;
+    })
 
     return (  
         <div className="min-h-screen w-full py-12 flex justify-normal items-center">
