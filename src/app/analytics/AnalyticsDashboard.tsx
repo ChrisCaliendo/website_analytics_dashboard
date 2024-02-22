@@ -3,12 +3,13 @@ import { analytics } from "@/utils/analytics";
 import { BarChart, Card } from "@tremor/react";
 
 interface AnalyticsDashboardProps {
+    topCountries: [string, number][]
     avgVisitorsPerDay: string
     visitorsToday: number
     timeseriesPageviews: Awaited<ReturnType<typeof analytics.retrieveDays>>
 }
 
-const AnalyticsDashboard = ({ avgVisitorsPerDay, visitorsToday, timeseriesPageviews}: 
+const AnalyticsDashboard = ({ avgVisitorsPerDay, visitorsToday, timeseriesPageviews, topCountries}: 
 AnalyticsDashboardProps) => {
     return (  
         <div className="flex gap-6">
@@ -25,6 +26,13 @@ AnalyticsDashboardProps) => {
                 </Card>
                 
             </div>
+
+            <Card className="flex flex-col sm:grid grid-cols-4 gap-6">
+                <h2 className="w-full text-dark-tremor-content-strong text-center sm:left-left font-semibold text-xl">
+
+                </h2>
+            </Card>
+
             <Card className="w-full mx-auto max-w-xs rounded-lg col-span-2 row-span-12">
                     {timeseriesPageviews ? (
                         <BarChart 
