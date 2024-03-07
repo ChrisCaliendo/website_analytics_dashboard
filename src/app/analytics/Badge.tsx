@@ -5,6 +5,7 @@ const Badge = ({percentage}: {percentage: number}) => {
     const isNeutral = percentage === 0
     const isNegative = percentage < 0
 
+    // badge style classes
     const positiveClass = "bg-green-200 text-green-800"
     const negativeClass = "bg-red-200 text-red-800"
     const neutralClass = "bg-zinc-200 text-zinc-800"
@@ -16,6 +17,7 @@ const Badge = ({percentage}: {percentage: number}) => {
             {isNegative && <ArrowDownRight className="h-3 w-3"/>}
             {isNeutral && <ArrowRight className="h-3 w-3"/>}
             {percentage.toFixed(0)}%
+
         </span>
     )
 }
