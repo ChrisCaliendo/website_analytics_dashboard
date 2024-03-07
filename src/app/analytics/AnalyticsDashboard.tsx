@@ -15,14 +15,14 @@ interface AnalyticsDashboardProps {
 const AnalyticsDashboard = ({ avgVisitorsPerDay, visitorsToday, timeseriesPageviews, topCountries}: 
 AnalyticsDashboardProps) => {
     return (  
-        <div className="flex gap-6">
-            <div className="grid w-full mx-auto grid-rows-3 grid-cols-2">
-                <Card className="w-full mx-auto max-w-xs rounded-lg col-span-1">
+        <div className="grid gap-6">
+            <div className="flex w-full mx-auto grid-rows-3 grid-cols-2">
+                <Card className="w-full mx-auto max-w-xs rounded-lg row-span-1">
                     <p className="text-tremor-default text-dark-tremor-content">Avg. Visitors/Day</p>
                     <p>{avgVisitorsPerDay}</p>
                     
                 </Card>
-                <Card className="w-full mx-auto max-w-xs rounded-lg col-span-1">
+                <Card className="w-full mx-auto max-w-xs rounded-lg ">
                     <p className="text-tremor-default text-dark-tremor-content">Visitors Today</p>
                     <p>{visitorsToday}</p>
                     <Badge percentage={(visitorsToday/Number(avgVisitorsPerDay)-1)*100}/>
@@ -51,7 +51,7 @@ AnalyticsDashboardProps) => {
                 </div>
             </Card>
 
-            <Card className="w-full mx-auto max-w-xs rounded-lg col-span-2 row-span-12">
+            <Card className="w-full  rounded-lg row-span-2">
                 {timeseriesPageviews ? (
                     <BarChart 
                         allowDecimals={false}
